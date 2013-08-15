@@ -156,5 +156,12 @@ def clearData():
     Clears files data.dat and result.dat
     """
     print >> sys.stderr, 'Clearing data.dat and result.dat'
-    os.system('rm data.dat')
-    os.system('rm result.dat')
+
+    platform=sys.platform
+    if platform  == 'win32' :
+        os.system('del data.dat')
+        os.system('del result.dat')
+    else:
+        os.system('rm data.dat')
+        os.system('rm result.dat')
+
